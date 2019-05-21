@@ -32,7 +32,7 @@ class Artist
 
   def self.find_or_create_by_name(artist_name)
     if @@all.map{|i| i.name}.include?(artist_name) #checks if the argument "artist_name" already has an associated instance
-      @@all.find{|i| i.name==artist_name}
+      @@all.find{|i| i.name==artist_name} #finds the instance whose :name attribute matches the argument
     else
       artist=self.new(artist_name) #if the artist_name isn't present then we need to create a new instance
       artist.save #saving it to @@all
