@@ -11,7 +11,7 @@ class Song
   
   def artist_name=(name)
     self.artist = Artist.find_or_create_by_name(name)
-    self.artist.add_song(self)
+    # self.artist.add_song(self)
     #name
   end
   
@@ -19,7 +19,7 @@ class Song
   
   def self.new_by_filename(filename)
     file_array = filename.split(" - ")
-    
+    binding.pry
   #make a new song from the parsed filename
     new_song = Song.new(file_array[1])
      
@@ -27,9 +27,9 @@ class Song
     artist = Artist.find_or_create_by_name(file_array[0])
     #binding.pry
     #associate the newly created song with the found or created artist
-    new_song.artist = artist
-    new_song 
-   
+    # new_song.artist = artist
+    artist.add_song(new_song)
+    
   end
 
   # def self.new_by_filename(filename)
